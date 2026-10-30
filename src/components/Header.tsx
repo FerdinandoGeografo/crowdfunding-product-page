@@ -9,7 +9,7 @@ export default function Header() {
       </div>
 
       <div className="flex items-center justify-between px-6 pt-8 pb-19 sm:px-41.25 sm:pt-12 sm:pb-15">
-        <img className="z-100" src="logo.svg" alt="Crowdfunding page logo" />
+        <img className="z-50" src="logo.svg" alt="Crowdfunding page logo" />
         <Navigation />
       </div>
     </>

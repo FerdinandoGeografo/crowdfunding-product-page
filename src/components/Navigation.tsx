@@ -6,7 +6,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
 
-  useScrollLock(isOpen, false);
+  useScrollLock(isOpen);
 
   return (
     <>
@@ -21,7 +21,7 @@ export default function Navigation() {
         aria-expanded={isOpen}
         aria-controls="mobile-nav"
         aria-label={isOpen ? "Open navigation menu" : "Close navigation menu"}
-        className="group relative z-100 flex size-5 items-center justify-center outline-0 sm:hidden"
+        className="group relative z-50 flex size-5 items-center justify-center outline-0 sm:hidden"
         onClick={() => setIsOpen((open) => !open)}
       >
         <div className="bg-shade-700 absolute top-1/2 left-1/2 -z-1 size-8 -translate-1/2 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus:opacity-100"></div>

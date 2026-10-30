@@ -10,9 +10,9 @@ interface RewardCardProps {
 }
 
 export default function RewardCard({
-  option: { baseAmount, unitsLeft, description, name },
+  option: { id, baseAmount, unitsLeft, description, name },
 }: RewardCardProps) {
-  const { open } = useModal();
+  const { openBackProject } = useModal();
   const isOutStock = unitsLeft === 0;
 
   return (
@@ -35,7 +35,7 @@ export default function RewardCard({
           <Button
             disabled={isOutStock}
             className="px-8"
-            onClick={() => open("back-project")}
+            onClick={() => openBackProject(id)}
           >
             <span>{isOutStock ? "Out of stock" : "Select Reward"}</span>
           </Button>

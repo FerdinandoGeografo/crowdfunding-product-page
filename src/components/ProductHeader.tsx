@@ -9,7 +9,7 @@ export default function ProductHeader() {
     dispatch,
   } = useProduct();
 
-  const { open } = useModal();
+  const { openBackProject } = useModal();
 
   return (
     <Card className="relative flex flex-col gap-10 px-6 pt-13 pb-10 sm:px-12 sm:pt-14 sm:pb-12">
@@ -27,7 +27,7 @@ export default function ProductHeader() {
         </p>
       </div>
       <div className="flex items-center justify-center gap-4.25 sm:justify-between">
-        <Button size="large" onClick={() => open("back-project")}>
+        <Button size="large" onClick={() => openBackProject()}>
           <span>Back this project</span>
         </Button>
 

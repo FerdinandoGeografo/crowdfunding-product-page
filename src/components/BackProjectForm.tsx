@@ -4,8 +4,8 @@ import { FREE_OPTION } from "../constants/product.const";
 import PledgeFormOption from "./PledgeFormOption";
 import ProductPledgeForm from "./PledgeAmountInput";
 
+import { DialogDescription, DialogTitle } from "@/components/dialog";
 import useProduct from "../hooks/useProduct";
-import Modal from "./Modal";
 import useModal from "../hooks/useModal";
 import usePledgeSelection from "../hooks/usePledgeSelection";
 
@@ -14,10 +14,14 @@ export default function BackProjectForm() {
     product: { pledgeOptions },
     dispatch,
   } = useProduct();
-  const { open, close } = useModal();
-  const { amount, setAmount, select, selectedId } = usePledgeSelection();
+  const { selectedOptionId, openThankYou } = useModal();
 
   const extendedOptions = [FREE_OPTION, ...pledgeOptions];
+  const initialOption = extendedOptions.find(
+    (option) => option.id === selectedOptionId,
+  );
+  const { amount, setAmount, select, selectedId } =
+    usePledgeSelection(initialOption);
 
   const handleSubmit: SubmitEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -32,17 +36,16 @@ export default function BackProjectForm() {
       },
     });
 
-    close();
-    open("thank-you");
+    openThankYou();
   };
 
   return (
     <div className="max-w-182.5 px-6 py-8 sm:px-12 sm:py-[48.5px]">
-      <Modal.Title className="mb-6 sm:mb-4">Back this project</Modal.Title>
-      <p className="mb-6 text-sm leading-6 text-neutral-500 sm:mb-8 sm:text-[16px] sm:leading-7.5">
+      <DialogTitle className="mb-6 sm:mb-4">Back this project</DialogTitle>
+      <DialogDescription className="mb-6 sm:mb-8">
         Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
         the world?
-      </p>
+      </DialogDescription>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-6">
         {extendedOptions.map((option) => (
