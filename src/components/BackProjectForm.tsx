@@ -22,11 +22,6 @@ export default function BackProjectForm() {
   const handleSubmit: SubmitEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    console.log("Submit: ", {
-      amount,
-      selectedId,
-    });
-
     if (!selectedId) return;
 
     dispatch({
