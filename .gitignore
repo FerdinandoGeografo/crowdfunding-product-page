@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 
 design/
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+.claude/
+skills-lock.json
