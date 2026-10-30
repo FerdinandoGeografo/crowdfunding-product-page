@@ -37,6 +37,7 @@ export default function ProductHeader() {
         </Button>
 
         <Toggle
+          aria-label="Bookmark"
           pressed={bookmarked}
           onPressedChange={() => dispatch({ type: "toggleBookmark" })}
           className="gap-4 sm:pr-6"
@@ -60,7 +61,7 @@ export default function ProductHeader() {
               />
             </g>
           </svg>
-          <span className="sr-only sm:not-sr-only">
+          <span className="hidden sm:block">
             {bookmarked ? "Bookmarked" : "Bookmark"}
           </span>
         </Toggle>
