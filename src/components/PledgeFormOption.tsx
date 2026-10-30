@@ -28,14 +28,17 @@ export default function PledgeFormOption({
   return (
     <Card
       className={cn(
-        "border-shade-300 pt-6 sm:px-7 sm:pt-8",
-        selected && "border-primary-500 inset-ring-primary-500 inset-ring",
+        "inset-ring-shade-300 pt-6 sm:pt-8",
+        // An outline is drawn above the content, so the amount row's divider doesn't cut it.
+        selected && "outline-primary-500 outline-2 -outline-offset-2",
         isOutStock && "opacity-50",
       )}
     >
       <label
         className={cn(
-          "grid grid-cols-[24px_1fr] grid-rows-[auto_auto_auto_auto] gap-x-4 gap-y-2 px-6 pb-8 sm:grid-cols-[24px_auto_auto_1fr] sm:grid-rows-[auto_auto] sm:items-center sm:gap-y-4.25 sm:px-0",
+          // Two 17px rows even without a pledge line; later rows only exist when used.
+          "grid grid-cols-[24px_1fr] grid-rows-[minmax(17px,auto)_minmax(17px,auto)] gap-x-4 gap-y-2 px-6 sm:grid-cols-[24px_auto_auto_1fr] sm:grid-rows-[auto_auto] sm:items-center sm:gap-y-4.25 sm:px-7 sm:pb-8",
+          selected ? "pb-6" : "pb-8",
           !isOutStock && "group/option cursor-pointer",
         )}
       >
@@ -49,7 +52,11 @@ export default function PledgeFormOption({
 
         <span
           id={`${textId}-name`}
-          className="group-hover/option:text-primary-500 text-sm leading-4.25 font-bold transition-colors duration-300 sm:mt-0 sm:ml-2 sm:text-lg sm:leading-5"
+          className={cn(
+            "group-hover/option:text-primary-500 text-sm leading-4.25 font-bold transition-colors duration-300 sm:ml-2 sm:text-base sm:leading-5",
+            option.kind === "free" &&
+              "row-span-2 self-center sm:row-span-1 sm:self-auto",
+          )}
         >
           {name}
         </span>
@@ -59,7 +66,7 @@ export default function PledgeFormOption({
             <span
               id={`${textId}-pledge`}
               className={cn(
-                "text-primary-500 text-sm leading-4.25 sm:text-lg sm:leading-5",
+                "text-primary-500 text-sm leading-4.25 sm:text-base sm:leading-5",
                 selected ? "font-bold" : "font-medium",
               )}
             >
@@ -67,7 +74,7 @@ export default function PledgeFormOption({
             </span>
             <span
               id={`${textId}-units`}
-              className="order-1 mt-4 ml-auto sm:order-0 sm:mt-0"
+              className="order-1 mt-4 ml-auto flex items-center sm:order-0 sm:mt-0 sm:h-5"
             >
               <ProductUnits unitsLeft={option.unitsLeft} size="medium" />
             </span>
@@ -76,7 +83,7 @@ export default function PledgeFormOption({
 
         <span
           id={`${textId}-description`}
-          className="col-start-1 -col-end-1 mt-4 text-sm leading-6 text-neutral-500 sm:col-start-2 sm:mt-0 sm:text-[15px] sm:leading-7"
+          className="col-start-1 -col-end-1 mt-4 text-sm leading-6 text-neutral-500 sm:col-start-2 sm:mt-0 sm:ml-2 sm:text-[15px] sm:leading-7"
         >
           {description}
         </span>

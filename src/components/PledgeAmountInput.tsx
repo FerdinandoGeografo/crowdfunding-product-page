@@ -21,7 +21,7 @@ export default function PledgeAmountInput({
       onKeyDown={(e) => {
         if (e.key.startsWith("Arrow")) e.stopPropagation();
       }}
-      className="border-t-shade-300 flex-wrap items-center justify-center gap-4 border-t px-6 py-6 sm:justify-end sm:px-0"
+      className="border-t-shade-300 flex-wrap items-center justify-center gap-4 border-t px-6 py-6 sm:justify-end sm:px-7"
     >
       {option.kind === "paid" && (
         <>
