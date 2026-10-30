@@ -12,13 +12,13 @@ interface PledgeFormOptionProps {
 }
 
 export default function PledgeFormOption({
-  option: { kind, id, name, description, ...attrs },
+  option,
   selected,
   onSelect,
   children,
 }: PledgeFormOptionProps) {
-  const isFree = kind === "free";
-  const isOutStock = attrs?.unitsLeft === 0;
+  const { id, name, description } = option;
+  const isOutStock = option.kind === "paid" && option.unitsLeft === 0;
 
   return (
     <label htmlFor={id} className="group">
@@ -45,15 +45,15 @@ export default function PledgeFormOption({
             {name}
           </p>
 
-          {!isFree && (
+          {option.kind === "paid" && (
             <>
               <p
                 className={`text-primary-500 cursor-pointer text-sm leading-4.25 sm:text-lg sm:leading-5 ${selected ? "font-bold" : "font-medium"}`}
               >
-                Pledge {formatCurrency(attrs.baseAmount)} or more
+                Pledge {formatCurrency(option.baseAmount)} or more
               </p>
               <div className="order-1 mt-4 ml-auto sm:order-0 sm:mt-0">
-                <ProductUnits unitsLeft={attrs.unitsLeft} size="medium" />
+                <ProductUnits unitsLeft={option.unitsLeft} size="medium" />
               </div>
             </>
           )}
