@@ -12,7 +12,7 @@ function App() {
     <div className="flex min-h-screen flex-col gap-29 sm:gap-45">
       <Header />
       <ProductProvider>
-        <main className="mx-6 mb-19 self-center sm:mx-0 sm:mb-31">
+        <main className="mx-6 mb-19 self-center sm:mb-31">
           <article className="flex w-full flex-col gap-6 sm:max-w-182.5">
             <ModalProvider>
               <ProductHeader />
