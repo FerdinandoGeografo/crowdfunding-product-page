@@ -1,4 +1,4 @@
-import Button from "./Button";
+import { Button } from "@/components/button";
 import Card from "./Card";
 import useModal from "../hooks/useModal";
 import useProduct from "../hooks/useProduct";
@@ -32,10 +32,10 @@ export default function ProductHeader() {
         </Button>
 
         <Button
-          variation="secondary"
+          variant="secondary"
           size="large"
           onClick={() => dispatch({ type: "toggleBookmark" })}
-          className={`items-center gap-4 ${bookmarked ? "text-primary-800 bg-primary-50! hover:text-primary-500" : ""}`}
+          className={`gap-4 ${bookmarked ? "bg-primary-50 text-primary-800 hover:text-primary-500" : ""}`}
         >
           <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
             <g fill="none" fillRule="evenodd">

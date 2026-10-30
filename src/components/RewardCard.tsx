@@ -1,6 +1,6 @@
 import type { PaidPledgeOption } from "../models/product.interface";
 import { formatCurrency } from "../utils/format";
-import Button from "./Button";
+import { Button } from "@/components/button";
 import Card from "./Card";
 import useModal from "../hooks/useModal";
 import ProductUnits from "./ProductUnits";
@@ -34,7 +34,7 @@ export default function RewardCard({
 
           <Button
             disabled={isOutStock}
-            className="px-8!"
+            className="px-8"
             onClick={() => open("back-project")}
           >
             <span>{isOutStock ? "Out of stock" : "Select Reward"}</span>

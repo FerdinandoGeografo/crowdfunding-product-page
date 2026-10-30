@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
-import Button from "./Button";
+import { Button } from "@/components/button";
 import type { PledgeOption } from "../models/product.interface";
 
 interface PledgeAmountInputProps {
@@ -46,7 +46,7 @@ export default function PledgeAmountInput({
         </>
       )}
 
-      <Button disabled={isOutStock} className="px-6!" type="submit">
+      <Button disabled={isOutStock} className="px-6" type="submit">
         <span>Continue</span>
       </Button>
     </div>
