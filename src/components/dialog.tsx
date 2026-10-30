@@ -33,7 +33,7 @@ function DialogContent({
         <DialogPrimitive.Popup
           data-slot="dialog-content"
           className={cn(
-            "relative mx-auto w-full max-w-full rounded-lg bg-white outline-hidden sm:w-max",
+            "relative mx-auto w-full max-w-full rounded-lg bg-white outline-hidden data-nested-dialog-open:opacity-0 sm:w-max",
             align === "center" ? "my-auto" : "mb-auto",
             className,
           )}

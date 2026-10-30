@@ -4,7 +4,6 @@ import IconSprite from "./components/IconSprite";
 import ProductAbout from "./components/ProductAbout";
 import ProductHeader from "./components/ProductHeader";
 import ProductInfo from "./components/ProductInfo";
-import ThankYou from "./components/ThankYou";
 import ModalProvider from "./contexts/ModalProvider";
 import ProductProvider from "./contexts/ProductProvider";
 
@@ -22,7 +21,6 @@ function App() {
               <ProductAbout />
 
               <BackProjectDialog />
-              <ThankYou />
             </ModalProvider>
           </article>
         </main>

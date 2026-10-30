@@ -1,24 +1,23 @@
 import { Dialog, DialogContent } from "@/components/dialog";
 import useModal from "../hooks/useModal";
 import BackProjectForm from "./BackProjectForm";
+import ThankYou from "./ThankYou";
 
 export default function BackProjectDialog() {
   const { openName, openerRef, close } = useModal();
 
   return (
     <Dialog
-      open={openName === "back-project"}
+      open={openName !== null}
       onOpenChange={(open) => {
         if (!open) close();
       }}
     >
-      {/* Leave focus alone when handing over to the thank-you dialog. */}
-      <DialogContent
-        align="top"
-        finalFocus={openName === "thank-you" ? false : openerRef}
-      >
+      <DialogContent align="top" finalFocus={openerRef}>
         <BackProjectForm />
       </DialogContent>
+      {/* Nested, so the form stays open underneath and its backdrop is shared. */}
+      <ThankYou />
     </Dialog>
   );
 }

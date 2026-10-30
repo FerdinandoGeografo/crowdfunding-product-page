@@ -10,7 +10,7 @@ import useModal from "../hooks/useModal";
 import Icon from "./Icon";
 
 export default function ThankYou() {
-  const { openName, openerRef, close } = useModal();
+  const { openName, close } = useModal();
 
   return (
     <Dialog
@@ -19,7 +19,7 @@ export default function ThankYou() {
         if (!open) close();
       }}
     >
-      <DialogContent showCloseButton={false} finalFocus={openerRef}>
+      <DialogContent showCloseButton={false} finalFocus={false}>
         <div className="flex max-w-135 flex-col items-center gap-6 px-6 pt-8 pb-10 sm:gap-8 sm:px-12 sm:pt-12 sm:pb-[48.5px]">
           <Icon
             name="check"
