@@ -1,7 +1,7 @@
 import type { FreePledgeOption, Product } from "../models/product.interface";
 
 export const PRODUCT: Product = {
-  image: "logo-mastercraft.svg",
+  image: "/logo-mastercraft.svg",
   title: "Mastercraft Bamboo Monitor Riser",
   subTitle:
     "A beautiful & handcrafted monitor stand to reduce neck and eye strain.",
