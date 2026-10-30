@@ -8,10 +8,7 @@ const PRODUCT_UNITS_SIZES: Record<ProductUnitsProps["size"], string> = {
   medium: "text-lg leading-5.5",
 };
 
-export default function ProductUnits({
-  unitsLeft,
-  size = "medium",
-}: ProductUnitsProps) {
+export default function ProductUnits({ unitsLeft, size }: ProductUnitsProps) {
   return (
     <span className="inline-flex items-center gap-2">
       <span className={`${PRODUCT_UNITS_SIZES[size]} font-bold`}>

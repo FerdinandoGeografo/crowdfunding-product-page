@@ -1,4 +1,4 @@
-import { type SubmitEventHandler } from "react";
+import type { SubmitEventHandler } from "react";
 import { FREE_OPTION } from "../constants/product.const";
 
 import PledgeFormOption from "./PledgeFormOption";

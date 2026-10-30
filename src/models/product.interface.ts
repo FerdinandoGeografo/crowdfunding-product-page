@@ -28,7 +28,3 @@ export interface FreePledgeOption {
 }
 
 export type PledgeOption = PaidPledgeOption | FreePledgeOption;
-
-export interface ProductProps {
-  product: Product;
-}
