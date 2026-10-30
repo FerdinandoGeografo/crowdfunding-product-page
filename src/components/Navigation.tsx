@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Icon from "./Icon";
 import NavLink from "./NavLink";
 import useScrollLock from "../hooks/useScrollLock";
 
@@ -52,28 +53,9 @@ export default function Navigation() {
       >
         <div className="bg-shade-700 absolute top-1/2 left-1/2 -z-1 size-8 -translate-1/2 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"></div>
         {isOpen ? (
-          <svg
-            aria-hidden="true"
-            width="14"
-            height="15"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g className="fill-white" fillRule="evenodd">
-              <path d="M2.404.782l11.314 11.314-2.122 2.122L.282 2.904z" />
-              <path d="M.282 12.096L11.596.782l2.122 2.122L2.404 14.218z" />
-            </g>
-          </svg>
+          <Icon name="close-menu" className="h-3.75 w-3.5 text-white" />
         ) : (
-          <svg
-            aria-hidden="true"
-            width="16"
-            height="15"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g className="fill-white" fillRule="evenodd">
-              <path d="M0 0h16v3H0zM0 6h16v3H0zM0 12h16v3H0z" />
-            </g>
-          </svg>
+          <Icon name="hamburger" className="h-3.75 w-4 text-white" />
         )}
       </button>
 

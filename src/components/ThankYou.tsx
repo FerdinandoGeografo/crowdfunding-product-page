@@ -7,6 +7,7 @@ import {
   DialogTitle,
 } from "@/components/dialog";
 import useModal from "../hooks/useModal";
+import Icon from "./Icon";
 
 export default function ThankYou() {
   const { openName, openerRef, close } = useModal();
@@ -20,21 +21,10 @@ export default function ThankYou() {
     >
       <DialogContent showCloseButton={false} finalFocus={openerRef}>
         <div className="flex max-w-135 flex-col items-center gap-6 px-6 pt-8 pb-10 sm:gap-8 sm:px-12 sm:pt-12 sm:pb-[48.5px]">
-          <svg
-            aria-hidden="true"
-            className="size-16 sm:size-22.5"
-            viewBox="0 0 90 90"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g fill="none" fillRule="evenodd">
-              <circle className="fill-primary-500" cx="45" cy="45" r="45" />
-              <path
-                className="stroke-white stroke-4"
-                transform="translate(4 4) scale(1.3)"
-                d="M20 31.86L28.093 40 44 24"
-              />
-            </g>
-          </svg>
+          <Icon
+            name="check"
+            className="fill-primary-500 size-16 text-white sm:size-22.5"
+          />
 
           <div className="mb-2 flex flex-col items-center gap-6 sm:mt-[15.5px] sm:mb-0 sm:gap-4">
             <DialogTitle>Thanks for your support!</DialogTitle>

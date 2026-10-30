@@ -2,6 +2,7 @@ import { Button } from "@/components/button";
 import { Card } from "@/components/card";
 import { Toggle } from "@/components/toggle";
 import useModal from "../hooks/useModal";
+import Icon from "./Icon";
 import useProduct from "../hooks/useProduct";
 
 export default function ProductHeader() {
@@ -42,25 +43,10 @@ export default function ProductHeader() {
           onPressedChange={() => dispatch({ type: "toggleBookmark" })}
           className="gap-4 sm:pr-6"
         >
-          <svg
-            aria-hidden="true"
-            width="56"
-            height="56"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g fill="none" fillRule="evenodd">
-              <circle
-                className="group-aria-pressed/toggle:fill-primary-800 group-aria-pressed/toggle:group-hover/toggle:fill-primary-500 fill-neutral-900 transition-all duration-300 group-hover/toggle:fill-neutral-700"
-                cx="28"
-                cy="28"
-                r="28"
-              />
-              <path
-                className="fill-neutral-300 transition-colors duration-300 group-aria-pressed/toggle:fill-white"
-                d="M23 19v18l5-5.058L33 37V19z"
-              />
-            </g>
-          </svg>
+          <Icon
+            name="bookmark"
+            className="group-aria-pressed/toggle:fill-primary-800 group-aria-pressed/toggle:group-hover/toggle:fill-primary-500 size-14 fill-neutral-900 text-neutral-300 transition-colors duration-300 group-hover/toggle:fill-neutral-700 group-aria-pressed/toggle:text-white"
+          />
           <span className="hidden sm:block">
             {bookmarked ? "Bookmarked" : "Bookmark"}
           </span>

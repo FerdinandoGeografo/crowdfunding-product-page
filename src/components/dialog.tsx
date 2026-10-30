@@ -1,5 +1,6 @@
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { cn } from "cn";
+import Icon from "@/components/Icon";
 
 function Dialog({ ...props }: DialogPrimitive.Root.Props) {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;
@@ -45,18 +46,10 @@ function DialogContent({
               aria-label="Close dialog"
               className="group hover:bg-shade-600 focus-visible:ring-shade-700 absolute top-6.75 right-3.75 flex size-8 items-center justify-center rounded-full outline-hidden transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 sm:top-5.75 sm:right-5.75"
             >
-              <svg
-                aria-hidden="true"
-                width="15"
-                height="15"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  className="fill-black opacity-40 transition-opacity duration-300 group-hover:opacity-100"
-                  d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z"
-                  fillRule="evenodd"
-                />
-              </svg>
+              <Icon
+                name="close-modal"
+                className="size-3.75 text-black/40 transition-colors duration-300 group-hover:text-black"
+              />
             </DialogPrimitive.Close>
           )}
         </DialogPrimitive.Popup>
