@@ -1,6 +1,6 @@
 import useProduct from "../hooks/useProduct";
 import { formatCurrency, formatNumber } from "../utils/format";
-import Card from "./Card";
+import { Card } from "@/components/card";
 import DataBox from "./DataBox";
 
 export default function ProductInfo() {

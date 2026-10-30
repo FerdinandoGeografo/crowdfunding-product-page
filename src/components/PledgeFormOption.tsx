@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { PledgeOption } from "../models/product.interface";
 import { formatCurrency } from "../utils/format";
-import Card from "./Card";
+import { Card } from "@/components/card";
 import ProductUnits from "./ProductUnits";
 
 interface PledgeFormOptionProps {

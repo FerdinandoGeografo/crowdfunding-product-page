@@ -1,5 +1,5 @@
 import { Button } from "@/components/button";
-import Card from "./Card";
+import { Card } from "@/components/card";
 import useModal from "../hooks/useModal";
 import useProduct from "../hooks/useProduct";
 
