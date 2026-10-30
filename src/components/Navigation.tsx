@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import NavLink from "./NavLink";
 import useScrollLock from "../hooks/useScrollLock";
 
-// Matches Tailwind's `sm` breakpoint, where the menu becomes the inline nav.
+// Tailwind's `sm` breakpoint.
 const DESKTOP_QUERY = "(min-width: 40rem)";
 
 export default function Navigation() {
@@ -12,7 +12,6 @@ export default function Navigation() {
 
   useScrollLock(isOpen);
 
-  // While open: Escape closes the menu, and so does switching to the desktop layout.
   useEffect(() => {
     if (!isOpen) return;
     const desktop = window.matchMedia(DESKTOP_QUERY);

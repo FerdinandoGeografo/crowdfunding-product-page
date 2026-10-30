@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "shadcn/tailwind.css";
 
-/* Self-hosted variable font, latin subset (license: public/fonts/OFL.txt) */
 @font-face {
   font-family: "Commissioner";
   font-style: normal;
