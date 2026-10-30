@@ -1,3 +1,4 @@
+import { useId } from "react";
 import type { PaidPledgeOption } from "../models/product.interface";
 import { formatCurrency } from "../utils/format";
 import { Button } from "@/components/button";
@@ -14,6 +15,7 @@ export default function RewardCard({
 }: RewardCardProps) {
   const { openBackProject } = useModal();
   const isOutStock = unitsLeft === 0;
+  const nameId = useId();
 
   return (
     <li>
@@ -21,12 +23,14 @@ export default function RewardCard({
         className={`border-shade-300 flex flex-col gap-6 px-8 pt-8 pb-8 sm:pt-9.5 ${isOutStock ? "opacity-50" : ""}`}
       >
         <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <h3 className="text-lg leading-5.5 font-bold text-black">{name}</h3>
+          <h3 id={nameId} className="text-lg leading-5.5 font-bold text-black">
+            {name}
+          </h3>
           <p className="text-primary-500 text-[15px] leading-4.5 font-medium">
             Pledge {formatCurrency(baseAmount)} or more
           </p>
         </div>
-        <p className="text-sm leading-6 text-neutral-500 sm:leading-7.5 sm:text-[16]">
+        <p className="text-sm leading-6 text-neutral-500 sm:text-[16px] sm:leading-7.5">
           {description}
         </p>
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
@@ -34,6 +38,7 @@ export default function RewardCard({
 
           <Button
             disabled={isOutStock}
+            aria-describedby={nameId}
             className="px-8"
             onClick={() => openBackProject(id)}
           >
