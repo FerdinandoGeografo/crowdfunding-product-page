@@ -1,7 +1,8 @@
 @import "tailwindcss";
+@import "shadcn/tailwind.css";
 
 @theme {
-  --default-font-family: 'Commissioner', sans-serif;
+  --font-sans: "Commissioner", sans-serif;
 
   --color-primary-50: rgba(20, 122, 115, 5%);
   --color-primary-500: #3cb3ab;
@@ -12,13 +13,20 @@
   --color-neutral-700: #707070;
   --color-neutral-800: #979797;
   --color-neutral-900: #2f2f2f;
-  --color-shade-50: rgba(0,0,0,0);
-  --color-shade-100: rgba(47,47,47,.05);
-  --color-shade-200: rgba(0,0,0, .05);
-  --color-shade-300: rgba(0,0,0, .15);
-  --color-shade-500: rgba(47,47,47, .5);
-  --color-shade-600: rgba(47,47,47, .1);
-  --color-shade-700: rgba(0,0,0, .25);
-  --color-shade-800: rgba(0,0,0, .5);
-  --color-shade-900: rgba(0,0,0, .7);
+  --color-shade-50: rgba(0, 0, 0, 0);
+  --color-shade-100: rgba(47, 47, 47, 0.05);
+  --color-shade-200: rgba(0, 0, 0, 0.05);
+  --color-shade-300: rgba(0, 0, 0, 0.15);
+  --color-shade-500: rgba(47, 47, 47, 0.5);
+  --color-shade-600: rgba(47, 47, 47, 0.1);
+  --color-shade-700: rgba(0, 0, 0, 0.25);
+  --color-shade-800: rgba(0, 0, 0, 0.5);
+  --color-shade-900: rgba(0, 0, 0, 0.7);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }
