@@ -28,4 +28,5 @@ CLAUDE.md
 CLAUDE.local.md
 AGENTS.md
 .claude/
+.agents/
 skills-lock.json
