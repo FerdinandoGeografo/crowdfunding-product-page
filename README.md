@@ -10,6 +10,8 @@ This is a solution to the [Crowdfunding product page challenge on Frontend Mento
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+  - [How it works](#how-it-works)
+  - [Getting started](#getting-started)
   - [What I learned](#what-i-learned)
   - [Useful resources](#useful-resources)
   - [AI Collaboration](#ai-collaboration)
@@ -30,63 +32,62 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Desktop view of the crowdfunding product page](./screenshot.jpg)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Repository: [github.com/FerdinandoGeografo/crowdfunding-product-page](https://github.com/FerdinandoGeografo/crowdfunding-product-page)
+- Solution URL: TODO
+- Live Site URL: TODO
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
+- Semantic HTML5 markup and ARIA where native elements are not enough
+- Mobile-first workflow with a single `sm` (640px) breakpoint
+- [React 19](https://react.dev/) with strict TypeScript
+- [Vite](https://vite.dev/)
+- [Tailwind CSS 4](https://tailwindcss.com/), with the design palette as `@theme` tokens
+- [shadcn/ui](https://ui.shadcn.com/) on [Base UI](https://base-ui.com/) primitives: Button, Card, Dialog, Progress, Toggle, Radio Group, Field and Input, trimmed down to the styles the design uses
+- Commissioner as a self-hosted variable font (latin subset, preloaded)
+
+### How it works
+
+- **State.** `ProductProvider` holds the product in a `useReducer`. The pledge action is validated in the reducer with the same `isValidPledge` rule the form uses: a reward must have stock left and the amount must reach its minimum. The no-reward pledge never changes stock.
+- **Pledge flow.** "Back this project" and "Select Reward" open a controlled dialog; the reward picked from a card arrives preselected. Confirming a pledge switches to the thank-you dialog, and closing it returns focus to the button that started the flow.
+- **Form.** Each pledge option is a radio in a radio group, named after its reward. The amount panel sits next to the radio's label rather than inside it, the amount can be cleared while typing, and native validation blocks empty or too-low amounts.
+- **Components.** shadcn/ui files live in `src/components` with lowercase names (`button.tsx`); app components use PascalCase (`RewardCard.tsx`).
+
+### Getting started
+
+```bash
+npm install
+npm run dev     # start the dev server
+npm run build   # type-check and build for production
+npm run lint    # run ESLint
+```
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+- Rest-destructuring a discriminated union (`{ kind, ...attrs }`) loses the narrowing, so `attrs.unitsLeft` stops type-checking. Narrowing on the whole object (`option.kind === "paid"`) keeps it.
+- Fast Refresh needs component files to export only components, so contexts and hooks live in their own files.
+- Base UI's radio group moves the selection on arrow keys and does not treat `<input type="number">` as a text field, so the amount input inside a pledge card has to keep arrow keys to itself.
+- An inset ring on top of a 1px border gives the selected card a 2px outline without shifting its content.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Base UI documentation](https://base-ui.com/react/overview/quick-start) - component APIs for Dialog, Radio Group, Toggle and Progress.
+- [shadcn/ui documentation](https://ui.shadcn.com/docs) - CLI, component sources and the Base UI variants.
+- [Tailwind CSS v4 documentation](https://tailwindcss.com/docs) - `@theme` tokens and variants such as `aria-pressed:` and `group-*`.
 
 ### AI Collaboration
 
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
-
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
-- What worked well? What didn't?
+- **Tool:** Claude Code.
+- **Use:** auditing the existing code, then migrating the hand-made components to shadcn/ui one commit at a time, each commit reviewed and approved before it was made. Changes were checked with lint, a production build, and scripted runs in headless Chrome at 375px and 1440px.
+- **Findings from those runs:** the arrow-key conflict in the pledge form and a mobile wrap of the amount row were caught by the browser checks and fixed before committing.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- GitHub - [@FerdinandoGeografo](https://github.com/FerdinandoGeografo)
+- Frontend Mentor - TODO
