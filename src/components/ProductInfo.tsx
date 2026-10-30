@@ -1,4 +1,4 @@
-import { useProduct } from "../contexts/ProductContext";
+import useProduct from "../hooks/useProduct";
 import { formatCurrency, formatNumber } from "../utils/format";
 import Card from "./Card";
 import DataBox from "./DataBox";

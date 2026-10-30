@@ -1,5 +1,6 @@
 import Button from "./Button";
-import Modal, { useModal } from "./Modal";
+import Modal from "./Modal";
+import useModal from "../hooks/useModal";
 
 export default function ThankYou() {
   const { close } = useModal();

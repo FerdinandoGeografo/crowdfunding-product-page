@@ -2,7 +2,7 @@ import type { PaidPledgeOption } from "../models/product.interface";
 import { formatCurrency } from "../utils/format";
 import Button from "./Button";
 import Card from "./Card";
-import { useModal } from "./Modal";
+import useModal from "../hooks/useModal";
 import ProductUnits from "./ProductUnits";
 
 interface RewardCardProps {

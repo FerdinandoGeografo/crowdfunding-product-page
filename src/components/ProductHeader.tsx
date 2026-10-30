@@ -1,7 +1,7 @@
 import Button from "./Button";
 import Card from "./Card";
-import { useModal } from "./Modal";
-import { useProduct } from "../contexts/ProductContext";
+import useModal from "../hooks/useModal";
+import useProduct from "../hooks/useProduct";
 
 export default function ProductHeader() {
   const {

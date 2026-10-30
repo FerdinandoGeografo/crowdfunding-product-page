@@ -1,4 +1,4 @@
-import { useProduct } from "../contexts/ProductContext";
+import useProduct from "../hooks/useProduct";
 import Card from "./Card";
 import RewardCard from "./RewardCard";
 

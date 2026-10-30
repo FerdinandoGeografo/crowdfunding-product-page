@@ -1,22 +1,7 @@
-import { createContext, useContext, useReducer, type ReactNode } from "react";
+import { useReducer, type ReactNode } from "react";
 import type { Product } from "../models/product.interface";
 import { PRODUCT } from "../constants/product.const";
-
-interface ProductContextValue {
-  product: Product;
-  dispatch: React.Dispatch<ProductAction>;
-}
-
-const ProductContext = createContext<ProductContextValue | null>(null);
-
-type ProductAction =
-  | {
-      type: "pledge";
-      payload: { optionId: string; amount: number };
-    }
-  | {
-      type: "toggleBookmark";
-    };
+import { ProductContext, type ProductAction } from "./product.context";
 
 const initialState: Product = {
   ...PRODUCT,
@@ -45,7 +30,7 @@ function reducer(state: Product, action: ProductAction): Product {
   }
 }
 
-function ProductProvider({ children }: { children: ReactNode }) {
+export default function ProductProvider({ children }: { children: ReactNode }) {
   const [product, dispatch] = useReducer(reducer, initialState);
 
   return (
@@ -54,12 +39,3 @@ function ProductProvider({ children }: { children: ReactNode }) {
     </ProductContext.Provider>
   );
 }
-
-function useProduct() {
-  const context = useContext(ProductContext);
-  if (context === null)
-    throw new Error("ProductContext was used outside the ProductProvider");
-  return context;
-}
-
-export { ProductProvider, useProduct };

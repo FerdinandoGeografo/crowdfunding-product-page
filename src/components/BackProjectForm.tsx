@@ -4,8 +4,9 @@ import { FREE_OPTION } from "../constants/product.const";
 import PledgeFormOption from "./PledgeFormOption";
 import ProductPledgeForm from "./PledgeAmountInput";
 
-import { useProduct } from "../contexts/ProductContext";
-import Modal, { useModal } from "./Modal";
+import useProduct from "../hooks/useProduct";
+import Modal from "./Modal";
+import useModal from "../hooks/useModal";
 import usePledgeSelection from "../hooks/usePledgeSelection";
 
 export default function BackProjectForm() {

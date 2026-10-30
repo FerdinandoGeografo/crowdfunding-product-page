@@ -1,20 +1,8 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-  type ReactNode,
-} from "react";
+import { useCallback, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { ModalContext, type ModalName } from "../contexts/modal.context";
 import useDialog from "../hooks/useDialog";
-
-type ModalName = "back-project" | "thank-you";
-
-interface ModalContextValue {
-  openName: ModalName | null;
-  open: (name: ModalName) => void;
-  close: () => void;
-}
+import useModal from "../hooks/useModal";
 
 interface ModalProps {
   children: ReactNode;
@@ -25,8 +13,6 @@ interface WindowProps {
   children: ReactNode;
   showClose?: boolean;
 }
-
-const ModalContext = createContext<ModalContextValue | null>(null);
 
 function Modal({ children }: ModalProps) {
   const [openName, setOpenName] = useState<ModalName | null>(null);
@@ -135,11 +121,4 @@ function Title({
 Modal.Window = Window;
 Modal.Title = Title;
 
-function useModal() {
-  const context = useContext(ModalContext);
-  if (!context) throw new Error("Context used outside Modal provider");
-  return context;
-}
-
 export default Modal;
-export { useModal };

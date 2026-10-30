@@ -5,7 +5,7 @@ import ProductAbout from "./components/ProductAbout";
 import ProductHeader from "./components/ProductHeader";
 import ProductInfo from "./components/ProductInfo";
 import ThankYou from "./components/ThankYou";
-import { ProductProvider } from "./contexts/ProductContext";
+import ProductProvider from "./contexts/ProductProvider";
 
 function App() {
   return (
