@@ -1,6 +1,7 @@
 import { useReducer, type ReactNode } from "react";
 import type { Product } from "../models/product.interface";
-import { PRODUCT } from "../constants/product.const";
+import { FREE_OPTION, PRODUCT } from "../constants/product.const";
+import { isValidPledge } from "../utils/pledge";
 import { ProductContext, type ProductAction } from "./product.context";
 
 const initialState: Product = {
@@ -9,20 +10,28 @@ const initialState: Product = {
 
 function reducer(state: Product, action: ProductAction): Product {
   switch (action.type) {
-    case "pledge":
+    case "pledge": {
+      const { optionId, amount } = action.payload;
+      const option =
+        optionId === FREE_OPTION.id
+          ? FREE_OPTION
+          : state.pledgeOptions.find((option) => option.id === optionId);
+      if (!option || !isValidPledge(option, amount)) return state;
+
       return {
         ...state,
-        amountBacked: state.amountBacked + action.payload.amount,
+        amountBacked: state.amountBacked + amount,
         totalBackers: state.totalBackers + 1,
         pledgeOptions:
-          action.payload.optionId === "pledge-free"
+          option.kind === "free"
             ? state.pledgeOptions
-            : state.pledgeOptions.map((option) =>
-                option.id === action.payload.optionId
-                  ? { ...option, unitsLeft: option.unitsLeft - 1 }
-                  : option,
+            : state.pledgeOptions.map((paidOption) =>
+                paidOption.id === optionId
+                  ? { ...paidOption, unitsLeft: paidOption.unitsLeft - 1 }
+                  : paidOption,
               ),
       };
+    }
     case "toggleBookmark":
       return { ...state, bookmarked: !state.bookmarked };
     default:
