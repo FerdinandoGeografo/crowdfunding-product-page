@@ -18,6 +18,7 @@ export default function PledgeAmountInput({
     // This panel renders inside the radio group, which would treat arrow keys
     // as "select another reward". Keep them for the number input instead.
     <Field
+      aria-label={option.name}
       onKeyDown={(e) => {
         if (e.key.startsWith("Arrow")) e.stopPropagation();
       }}

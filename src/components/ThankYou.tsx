@@ -21,6 +21,7 @@ export default function ThankYou() {
       <DialogContent showCloseButton={false} finalFocus={openerRef}>
         <div className="flex max-w-135 flex-col items-center gap-6 px-6 pt-8 pb-10 sm:gap-8 sm:px-12 sm:pt-12 sm:pb-[48.5px]">
           <svg
+            aria-hidden="true"
             className="size-16 sm:size-22.5"
             viewBox="0 0 90 90"
             xmlns="http://www.w3.org/2000/svg"
