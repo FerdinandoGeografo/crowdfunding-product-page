@@ -24,17 +24,20 @@ function DialogContent({
     <DialogPrimitive.Portal>
       <DialogPrimitive.Backdrop
         data-slot="dialog-overlay"
-        className="bg-shade-800 fixed inset-0 z-50"
+        className="bg-shade-800 fixed inset-0 z-50 transition-opacity duration-300 data-ending-style:opacity-0 data-starting-style:opacity-0 motion-reduce:transition-none"
       />
       <DialogPrimitive.Viewport
         data-slot="dialog-viewport"
         className="fixed inset-0 z-50 flex overflow-y-auto px-6 py-30 sm:py-46"
       >
+        {/* Behind a nested dialog the popup only fades: closing from there
+            still runs the scale transition, which keeps the backdrop
+            mounted until its fade-out ends. */}
         <DialogPrimitive.Popup
           data-slot="dialog-content"
           className={cn(
-            "relative mx-auto w-full max-w-full rounded-lg bg-white outline-hidden data-nested-dialog-open:opacity-0 sm:w-max",
-            align === "center" ? "my-auto" : "mb-auto",
+            "relative mx-auto w-full max-w-full rounded-lg bg-white outline-hidden transition-[opacity,scale] duration-300 data-ending-style:scale-95 data-ending-style:opacity-0 data-nested-dialog-open:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0 motion-reduce:transition-none sm:w-max",
+            align === "center" ? "my-auto" : "mb-auto origin-top",
             className,
           )}
           {...props}
