@@ -13,7 +13,10 @@ export default function BackProjectDialog() {
       }}
     >
       {/* Leave focus alone when handing over to the thank-you dialog. */}
-      <DialogContent finalFocus={openName === "thank-you" ? false : openerRef}>
+      <DialogContent
+        align="top"
+        finalFocus={openName === "thank-you" ? false : openerRef}
+      >
         <BackProjectForm />
       </DialogContent>
     </Dialog>
