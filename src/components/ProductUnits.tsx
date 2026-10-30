@@ -13,11 +13,11 @@ export default function ProductUnits({
   size = "medium",
 }: ProductUnitsProps) {
   return (
-    <p className="inline-flex items-center gap-2">
+    <span className="inline-flex items-center gap-2">
       <span className={`${PRODUCT_UNITS_SIZES[size]} font-bold`}>
         {unitsLeft}
       </span>
       <span className="text-[15px] leading-4.5 text-neutral-500">left</span>
-    </p>
+    </span>
   );
 }

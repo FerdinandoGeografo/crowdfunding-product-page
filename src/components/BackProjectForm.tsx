@@ -2,12 +2,14 @@ import { type SubmitEventHandler } from "react";
 import { FREE_OPTION } from "../constants/product.const";
 
 import PledgeFormOption from "./PledgeFormOption";
-import ProductPledgeForm from "./PledgeAmountInput";
+import PledgeAmountInput from "./PledgeAmountInput";
 
 import { DialogDescription, DialogTitle } from "@/components/dialog";
+import { RadioGroup } from "@/components/radio-group";
 import useProduct from "../hooks/useProduct";
 import useModal from "../hooks/useModal";
 import usePledgeSelection from "../hooks/usePledgeSelection";
+import { isValidPledge } from "../utils/pledge";
 
 export default function BackProjectForm() {
   const {
@@ -22,17 +24,22 @@ export default function BackProjectForm() {
   );
   const { amount, setAmount, select, selectedId } =
     usePledgeSelection(initialOption);
+  const selectedOption = extendedOptions.find(
+    (option) => option.id === selectedId,
+  );
 
   const handleSubmit: SubmitEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    if (!selectedId) return;
+    if (!selectedOption) return;
+    const pledgeAmount = selectedOption.kind === "paid" ? Number(amount) : 0;
+    if (!isValidPledge(selectedOption, pledgeAmount)) return;
 
     dispatch({
       type: "pledge",
       payload: {
-        optionId: selectedId,
-        amount,
+        optionId: selectedOption.id,
+        amount: pledgeAmount,
       },
     });
 
@@ -47,21 +54,30 @@ export default function BackProjectForm() {
         the world?
       </DialogDescription>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-        {extendedOptions.map((option) => (
-          <PledgeFormOption
-            option={option}
-            key={option.id}
-            selected={selectedId === option.id}
-            onSelect={() => select(option)}
-          >
-            <ProductPledgeForm
+      <form onSubmit={handleSubmit}>
+        <RadioGroup
+          aria-label="Pledge options"
+          value={selectedId}
+          onValueChange={(value) => {
+            const option = extendedOptions.find((item) => item.id === value);
+            if (option) select(option);
+          }}
+          className="gap-6"
+        >
+          {extendedOptions.map((option) => (
+            <PledgeFormOption
               option={option}
-              amount={amount}
-              setAmount={setAmount}
-            />
-          </PledgeFormOption>
-        ))}
+              key={option.id}
+              selected={selectedId === option.id}
+            >
+              <PledgeAmountInput
+                option={option}
+                amount={amount}
+                onAmountChange={setAmount}
+              />
+            </PledgeFormOption>
+          ))}
+        </RadioGroup>
       </form>
     </div>
   );

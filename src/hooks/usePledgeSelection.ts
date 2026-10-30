@@ -1,8 +1,9 @@
 import { useState } from "react";
 import type { PledgeOption } from "../models/product.interface";
 
+// Kept as a string so the amount field can be cleared while typing.
 function getBaseAmount(option?: PledgeOption) {
-  return option?.kind === "paid" ? option.baseAmount : 0;
+  return option?.kind === "paid" ? String(option.baseAmount) : "";
 }
 
 export default function usePledgeSelection(initialOption?: PledgeOption) {
