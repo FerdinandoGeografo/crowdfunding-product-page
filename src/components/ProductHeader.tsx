@@ -13,7 +13,7 @@ export default function ProductHeader() {
   const { openBackProject } = useModal();
 
   return (
-    <Card className="relative flex flex-col gap-10 px-6 pt-13 pb-10 sm:px-12 sm:pt-14 sm:pb-12">
+    <Card className="relative flex flex-col gap-5.5 px-6 pt-13 pb-10 sm:gap-10 sm:px-12 sm:pt-14 sm:pb-12">
       <img
         className="absolute top-0 left-1/2 size-14 -translate-1/2"
         src={image}
@@ -27,8 +27,12 @@ export default function ProductHeader() {
           {subTitle}
         </p>
       </div>
-      <div className="flex items-center justify-center gap-4.25 sm:justify-between">
-        <Button size="large" onClick={() => openBackProject()}>
+      <div className="flex items-center justify-between gap-2.25">
+        <Button
+          size="large"
+          className="flex-1 sm:flex-none"
+          onClick={() => openBackProject()}
+        >
           <span>Back this project</span>
         </Button>
 

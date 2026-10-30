@@ -20,13 +20,16 @@ export default function RewardCard({
   return (
     <li>
       <Card
-        className={`border-shade-300 flex flex-col gap-6 px-8 pt-8 pb-8 sm:pt-9.5 ${isOutStock ? "opacity-50" : ""}`}
+        className={`inset-ring-shade-300 flex flex-col gap-6 p-6 sm:px-8 sm:pt-9.5 sm:pb-8 ${isOutStock ? "opacity-50" : ""}`}
       >
         <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <h3 id={nameId} className="text-lg leading-5.5 font-bold text-black">
+          <h3
+            id={nameId}
+            className="text-sm leading-4.25 font-bold text-black sm:text-lg sm:leading-5.5"
+          >
             {name}
           </h3>
-          <p className="text-primary-500 text-[15px] leading-4.5 font-medium">
+          <p className="text-primary-500 text-sm leading-4.25 font-medium sm:text-[15px] sm:leading-4.5">
             Pledge {formatCurrency(baseAmount)} or more
           </p>
         </div>
