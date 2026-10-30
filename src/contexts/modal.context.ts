@@ -6,7 +6,7 @@ export interface ModalContextValue {
   openName: ModalName | null;
   selectedOptionId: string | null;
   openerRef: RefObject<HTMLElement | null>;
-  openBackProject: (optionId?: string) => void;
+  openBackProject: (opener: HTMLElement, optionId?: string) => void;
   openThankYou: () => void;
   close: () => void;
 }

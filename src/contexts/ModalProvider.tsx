@@ -6,13 +6,14 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
   const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
   const openerRef = useRef<HTMLElement | null>(null);
 
-  const openBackProject = useCallback((optionId?: string) => {
-    const { activeElement } = document;
-    openerRef.current =
-      activeElement instanceof HTMLElement ? activeElement : null;
-    setSelectedOptionId(optionId ?? null);
-    setOpenName("back-project");
-  }, []);
+  const openBackProject = useCallback(
+    (opener: HTMLElement, optionId?: string) => {
+      openerRef.current = opener;
+      setSelectedOptionId(optionId ?? null);
+      setOpenName("back-project");
+    },
+    [],
+  );
   const openThankYou = useCallback(() => setOpenName("thank-you"), []);
   const close = useCallback(() => setOpenName(null), []);
 

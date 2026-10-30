@@ -31,7 +31,7 @@ export default function ProductHeader() {
         <Button
           size="large"
           className="flex-1 sm:flex-none"
-          onClick={() => openBackProject()}
+          onClick={(e) => openBackProject(e.currentTarget)}
         >
           <span>Back this project</span>
         </Button>

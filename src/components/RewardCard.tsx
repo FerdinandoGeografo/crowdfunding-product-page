@@ -41,9 +41,10 @@ export default function RewardCard({
 
           <Button
             disabled={isOutStock}
+            focusableWhenDisabled
             aria-describedby={nameId}
             className="px-8"
-            onClick={() => openBackProject(id)}
+            onClick={(e) => openBackProject(e.currentTarget, id)}
           >
             <span>{isOutStock ? "Out of stock" : "Select Reward"}</span>
           </Button>
