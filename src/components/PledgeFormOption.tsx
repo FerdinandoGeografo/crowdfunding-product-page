@@ -2,8 +2,8 @@ import { useId, type ReactNode } from "react";
 import { cn } from "cn";
 import type { PledgeOption } from "../models/product.interface";
 import { formatCurrency } from "../utils/format";
-import { Card } from "@/components/card";
-import { RadioGroupItem } from "@/components/radio-group";
+import { Card } from "@/components/ui/card";
+import { RadioGroupItem } from "@/components/ui/radio-group";
 import ProductUnits from "./ProductUnits";
 
 interface PledgeFormOptionProps {

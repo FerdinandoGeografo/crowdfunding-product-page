@@ -1,5 +1,5 @@
 import useProduct from "../hooks/useProduct";
-import { Card } from "@/components/card";
+import { Card } from "@/components/ui/card";
 import RewardCard from "./RewardCard";
 
 export default function ProductAbout() {

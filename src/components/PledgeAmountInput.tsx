@@ -1,6 +1,6 @@
-import { Button } from "@/components/button";
-import { Field, FieldLabel } from "@/components/field";
-import { Input } from "@/components/input";
+import { Button } from "@/components/ui/button";
+import { Field, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
 import type { PledgeOption } from "../models/product.interface";
 
 interface PledgeAmountInputProps {

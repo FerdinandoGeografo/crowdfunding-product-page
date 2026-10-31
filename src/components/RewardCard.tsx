@@ -1,8 +1,8 @@
 import { useId } from "react";
 import type { PaidPledgeOption } from "../models/product.interface";
 import { formatCurrency } from "../utils/format";
-import { Button } from "@/components/button";
-import { Card } from "@/components/card";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import useModal from "../hooks/useModal";
 import ProductUnits from "./ProductUnits";
 

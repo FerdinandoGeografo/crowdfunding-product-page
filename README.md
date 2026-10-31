@@ -57,7 +57,7 @@ Users should be able to:
 - **State.** `ProductProvider` holds the product in a `useReducer`. The pledge action is validated in the reducer with the same `isValidPledge` rule the form uses: a reward must have stock left and the amount must reach its minimum. The no-reward pledge never changes stock.
 - **Pledge flow.** "Back this project" and "Select Reward" open a controlled dialog; the reward picked from a card arrives preselected. Confirming a pledge switches to the thank-you dialog, and closing it returns focus to the button that started the flow.
 - **Form.** Each pledge option is a radio in a radio group, named after its reward. The amount panel sits next to the radio's label rather than inside it, the amount can be cleared while typing, and native validation blocks empty or too-low amounts.
-- **Components.** shadcn/ui files live in `src/components` with lowercase names (`button.tsx`); app components use PascalCase (`RewardCard.tsx`).
+- **Components.** shadcn/ui primitives live in `src/components/ui` with lowercase names (`button.tsx`); app components sit in `src/components` with PascalCase names (`RewardCard.tsx`).
 
 ### Getting started
 

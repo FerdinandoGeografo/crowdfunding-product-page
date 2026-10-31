@@ -4,8 +4,8 @@ import { FREE_OPTION } from "../constants/product.const";
 import PledgeFormOption from "./PledgeFormOption";
 import PledgeAmountInput from "./PledgeAmountInput";
 
-import { DialogDescription, DialogTitle } from "@/components/dialog";
-import { RadioGroup } from "@/components/radio-group";
+import { DialogDescription, DialogTitle } from "@/components/ui/dialog";
+import { RadioGroup } from "@/components/ui/radio-group";
 import useProduct from "../hooks/useProduct";
 import useModal from "../hooks/useModal";
 import usePledgeSelection from "../hooks/usePledgeSelection";

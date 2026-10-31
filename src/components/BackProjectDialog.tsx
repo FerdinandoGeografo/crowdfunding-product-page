@@ -1,4 +1,4 @@
-import { Dialog, DialogContent } from "@/components/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import useModal from "../hooks/useModal";
 import BackProjectForm from "./BackProjectForm";
 import ThankYou from "./ThankYou";

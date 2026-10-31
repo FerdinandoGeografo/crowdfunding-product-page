@@ -1,11 +1,11 @@
-import { Button } from "@/components/button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
   DialogContent,
   DialogDescription,
   DialogTitle,
-} from "@/components/dialog";
+} from "@/components/ui/dialog";
 import useModal from "../hooks/useModal";
 import Icon from "./Icon";
 

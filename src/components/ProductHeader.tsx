@@ -1,6 +1,6 @@
-import { Button } from "@/components/button";
-import { Card } from "@/components/card";
-import { Toggle } from "@/components/toggle";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Toggle } from "@/components/ui/toggle";
 import useModal from "../hooks/useModal";
 import Icon from "./Icon";
 import useProduct from "../hooks/useProduct";

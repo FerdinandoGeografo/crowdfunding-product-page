@@ -1,7 +1,7 @@
 import useProduct from "../hooks/useProduct";
 import { formatCurrency, formatNumber } from "../utils/format";
-import { Card } from "@/components/card";
-import { Progress } from "@/components/progress";
+import { Card } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import DataBox from "./DataBox";
 
 export default function ProductInfo() {
