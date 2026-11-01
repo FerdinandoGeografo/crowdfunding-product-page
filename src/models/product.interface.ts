@@ -7,7 +7,6 @@ export interface Product {
   daysLeft: number;
   totalAmount: number;
   description: string;
-  bookmarked: boolean;
   pledgeOptions: PaidPledgeOption[];
 }
 

@@ -1,14 +1,10 @@
 import { createContext, type Dispatch } from "react";
 import type { Product } from "../models/product.interface";
 
-export type ProductAction =
-  | {
-      type: "pledge";
-      payload: { optionId: string; amount: number };
-    }
-  | {
-      type: "toggleBookmark";
-    };
+export type ProductAction = {
+  type: "pledge";
+  payload: { optionId: string; amount: number };
+};
 
 export interface ProductContextValue {
   product: Product;

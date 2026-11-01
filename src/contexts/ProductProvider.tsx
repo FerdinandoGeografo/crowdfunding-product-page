@@ -32,8 +32,6 @@ function reducer(state: Product, action: ProductAction): Product {
               ),
       };
     }
-    case "toggleBookmark":
-      return { ...state, bookmarked: !state.bookmarked };
     default:
       throw new Error("Action is unknown");
   }

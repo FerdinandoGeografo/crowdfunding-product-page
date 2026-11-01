@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Toggle } from "@/components/ui/toggle";
@@ -7,9 +8,9 @@ import useProduct from "../hooks/useProduct";
 
 export default function ProductHeader() {
   const {
-    product: { title, subTitle, bookmarked, image },
-    dispatch,
+    product: { title, subTitle, image },
   } = useProduct();
+  const [bookmarked, setBookmarked] = useState(false);
 
   const { openBackProject } = useModal();
 
@@ -40,7 +41,7 @@ export default function ProductHeader() {
         <Toggle
           aria-label="Bookmark"
           pressed={bookmarked}
-          onPressedChange={() => dispatch({ type: "toggleBookmark" })}
+          onPressedChange={setBookmarked}
           className="gap-4 sm:pr-6"
         >
           <Icon
