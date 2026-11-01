@@ -18,6 +18,18 @@
       type="font/woff2"
       crossorigin
     />
+    <link
+      rel="preload"
+      href="/image-hero-mobile.jpg"
+      as="image"
+      media="(width < 40rem)"
+    />
+    <link
+      rel="preload"
+      href="/image-hero-desktop.jpg"
+      as="image"
+      media="(width >= 40rem)"
+    />
   </head>
   <body>
     <div id="root"></div>
