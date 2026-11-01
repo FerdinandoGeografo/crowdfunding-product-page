@@ -22,7 +22,7 @@ export default function Navigation() {
           aria-label="Menu"
           className="group relative z-50 flex size-5 items-center justify-center outline-hidden sm:hidden"
         >
-          <div className="bg-shade-700 absolute top-1/2 left-1/2 -z-1 size-8 -translate-1/2 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"></div>
+          <div className="bg-shade-700 absolute top-1/2 left-1/2 -z-1 size-8 -translate-1/2 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 group-focus-visible:ring-2 group-focus-visible:ring-white"></div>
           {isOpen ? (
             <Icon name="close-menu" className="h-3.75 w-3.5 text-white" />
           ) : (
