@@ -18,7 +18,7 @@ export default function ProductHeader() {
       <img
         className="absolute top-0 left-1/2 size-14 -translate-1/2"
         src={image}
-        alt={`${title}'s logo image`}
+        alt=""
       />
       <div className="flex flex-col items-center gap-4 text-center sm:gap-3.75">
         <h1 className="text-xl leading-6 font-bold text-balance sm:text-[28px] sm:leading-8.5">
