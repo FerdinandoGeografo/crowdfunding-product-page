@@ -3,7 +3,6 @@ import Icon from "./Icon";
 import NavLink from "./NavLink";
 import useScrollLock from "../hooks/useScrollLock";
 
-// Tailwind's `sm` breakpoint.
 const DESKTOP_QUERY = "(min-width: 40rem)";
 
 export default function Navigation() {

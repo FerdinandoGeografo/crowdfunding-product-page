@@ -7,7 +7,6 @@ export default function Header() {
         <div className="from-shade-900 to-shade-50 h-32 bg-linear-to-b" />
       </div>
 
-      {/* 165px at 1440px wide, shrinking so logo and nav fit on narrow tablets. */}
       <header className="flex items-center justify-between px-6 pt-8 pb-19 sm:px-[clamp(1.5rem,11.46vw,10.3125rem)] sm:pt-12 sm:pb-15">
         <img className="z-50" src="/logo.svg" alt="Crowdfunding page logo" />
         <Navigation />

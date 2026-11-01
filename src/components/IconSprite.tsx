@@ -1,5 +1,3 @@
-// Symbols set no colours: shapes paint with currentColor (`text-*` on <Icon>),
-// and the circles of bookmark and check inherit `fill` (`fill-*` on <Icon>).
 export default function IconSprite() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className="hidden">
