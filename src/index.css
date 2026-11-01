@@ -31,6 +31,28 @@
   --color-shade-900: rgba(0, 0, 0, 0.7);
 }
 
+@utility bg-hero {
+  background-image: url("/image-hero-mobile.jpg");
+
+  @variant sm {
+    background-image: url("/image-hero-desktop.jpg");
+  }
+
+  @supports (background-image: image-set("/" type("image/avif"))) {
+    background-image: image-set(
+      "/image-hero-mobile.avif" type("image/avif"),
+      "/image-hero-mobile.jpg" type("image/jpeg")
+    );
+
+    @variant sm {
+      background-image: image-set(
+        "/image-hero-desktop.avif" type("image/avif"),
+        "/image-hero-desktop.jpg" type("image/jpeg")
+      );
+    }
+  }
+}
+
 @utility text-body {
   font-size: var(--text-sm);
   line-height: --spacing(6);
