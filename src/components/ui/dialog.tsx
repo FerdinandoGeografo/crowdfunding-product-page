@@ -22,7 +22,7 @@ function DialogContent({
     <DialogPrimitive.Portal>
       <DialogPrimitive.Backdrop
         data-slot="dialog-overlay"
-        className="bg-shade-800 fixed inset-0 z-50 transition-opacity duration-300 data-ending-style:opacity-0 data-starting-style:opacity-0 motion-reduce:transition-none"
+        className="bg-shade-800 fixed inset-0 z-50 transition-opacity duration-300 data-ending-style:opacity-0 data-starting-style:opacity-0"
       />
       <DialogPrimitive.Viewport
         data-slot="dialog-viewport"
@@ -31,7 +31,7 @@ function DialogContent({
         <DialogPrimitive.Popup
           data-slot="dialog-content"
           className={cn(
-            "relative m-auto w-full max-w-full rounded-lg bg-white outline-hidden transition-[opacity,scale] duration-300 data-ending-style:scale-95 data-ending-style:opacity-0 data-nested-dialog-open:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0 motion-reduce:transition-none sm:w-max",
+            "relative m-auto w-full max-w-full rounded-lg bg-white outline-hidden transition-[opacity,scale] duration-300 data-ending-style:scale-95 data-ending-style:opacity-0 data-nested-dialog-open:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0 sm:w-max",
             className,
           )}
           {...props}
