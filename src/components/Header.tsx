@@ -8,7 +8,13 @@ export default function Header() {
       </div>
 
       <header className="flex items-center justify-between px-6 pt-8 pb-19 sm:px-[clamp(1.5rem,11.46vw,10.3125rem)] sm:pt-12 sm:pb-15">
-        <img className="z-50" src="/logo.svg" alt="crowdfund" />
+        <img
+          className="z-50"
+          src="/logo.svg"
+          alt="crowdfund"
+          width="128"
+          height="20"
+        />
         <Navigation />
       </header>
     </>
