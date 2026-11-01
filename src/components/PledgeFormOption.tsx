@@ -86,7 +86,9 @@ export default function PledgeFormOption({
         </span>
       </label>
 
-      {selected && <PledgeAmountInput option={option} />}
+      {selected && (
+        <PledgeAmountInput option={option} minimumId={`${textId}-pledge`} />
+      )}
     </Card>
   );
 }

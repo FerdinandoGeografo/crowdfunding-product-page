@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { Button } from "@/components/ui/button";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
@@ -5,9 +6,15 @@ import type { PledgeOption } from "../models/product.interface";
 
 interface PledgeAmountInputProps {
   option: PledgeOption;
+  minimumId: string;
 }
 
-export default function PledgeAmountInput({ option }: PledgeAmountInputProps) {
+export default function PledgeAmountInput({
+  option,
+  minimumId,
+}: PledgeAmountInputProps) {
+  const inputId = useId();
+
   return (
     <Field
       aria-label={option.name}
@@ -19,7 +26,7 @@ export default function PledgeAmountInput({ option }: PledgeAmountInputProps) {
       {option.kind === "paid" && (
         <>
           <FieldLabel
-            htmlFor="pledge-value"
+            htmlFor={inputId}
             className="w-full text-center sm:mr-auto sm:w-auto sm:text-left"
           >
             Enter your pledge
@@ -30,13 +37,14 @@ export default function PledgeAmountInput({ option }: PledgeAmountInputProps) {
               $
             </span>
             <Input
-              id="pledge-value"
+              id={inputId}
               name="amount"
               type="number"
               inputMode="numeric"
               required
               min={option.baseAmount}
               defaultValue={option.baseAmount}
+              aria-describedby={minimumId}
               className="max-w-25 pr-2 pl-10"
             />
           </div>
