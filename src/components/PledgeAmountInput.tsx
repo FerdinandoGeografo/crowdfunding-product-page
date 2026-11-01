@@ -15,8 +15,6 @@ export default function PledgeAmountInput({
   onAmountChange,
 }: PledgeAmountInputProps) {
   return (
-    // This panel renders inside the radio group, which would treat arrow keys
-    // as "select another reward". Keep them for the number input instead.
     <Field
       aria-label={option.name}
       onKeyDown={(e) => {

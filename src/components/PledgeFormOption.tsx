@@ -29,14 +29,12 @@ export default function PledgeFormOption({
     <Card
       className={cn(
         "inset-ring-shade-300 pt-6 sm:pt-8",
-        // An outline is drawn above the content, so the amount row's divider doesn't cut it.
         selected && "outline-primary-500 outline-2 -outline-offset-2",
         isOutStock && "opacity-50",
       )}
     >
       <label
         className={cn(
-          // Two 17px rows even without a pledge line; later rows only exist when used.
           "grid grid-cols-[24px_1fr] grid-rows-[minmax(17px,auto)_minmax(17px,auto)] gap-x-4 gap-y-2 px-6 sm:grid-cols-[24px_auto_auto_1fr] sm:grid-rows-[auto_auto] sm:items-center sm:gap-y-4.25 sm:px-7 sm:pb-8",
           selected ? "pb-6" : "pb-8",
           !isOutStock && "group/option cursor-pointer",
