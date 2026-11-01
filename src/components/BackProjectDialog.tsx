@@ -13,10 +13,10 @@ export default function BackProjectDialog() {
         if (!open) close();
       }}
     >
-      <DialogContent align="top" finalFocus={openerRef}>
+      <DialogContent finalFocus={openerRef}>
         <BackProjectForm />
       </DialogContent>
-      {/* Nested, so the form stays open underneath and its backdrop is shared. */}
+
       <ThankYou />
     </Dialog>
   );
