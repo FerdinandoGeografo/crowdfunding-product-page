@@ -76,7 +76,7 @@ export default function PledgeFormOption({
               id={`${textId}-units`}
               className="order-1 mt-4 ml-auto flex items-center sm:order-0 sm:mt-0 sm:h-5"
             >
-              <ProductUnits unitsLeft={option.unitsLeft} size="medium" />
+              <ProductUnits unitsLeft={option.unitsLeft} />
             </span>
           </>
         )}
