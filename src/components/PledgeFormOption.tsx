@@ -2,6 +2,7 @@ import { useId } from "react";
 import { cn } from "cn";
 import type { PledgeOption } from "../models/product.interface";
 import { formatCurrency } from "../utils/format";
+import { isOutOfStock } from "../utils/pledge";
 import { Card } from "@/components/ui/card";
 import { RadioGroupItem } from "@/components/ui/radio-group";
 import PledgeAmountInput from "./PledgeAmountInput";
@@ -17,7 +18,7 @@ export default function PledgeFormOption({
   selected,
 }: PledgeFormOptionProps) {
   const { id, name, description } = option;
-  const isOutStock = option.kind === "paid" && option.unitsLeft === 0;
+  const outOfStock = isOutOfStock(option);
   const textId = useId();
   const detailIds =
     option.kind === "paid"
@@ -29,19 +30,19 @@ export default function PledgeFormOption({
       className={cn(
         "inset-ring-shade-300 pt-6 sm:pt-8",
         selected && "outline-primary-500 outline-2 -outline-offset-2",
-        isOutStock && "opacity-50",
+        outOfStock && "opacity-50",
       )}
     >
       <label
         className={cn(
           "grid grid-cols-[24px_1fr] grid-rows-[minmax(17px,auto)_minmax(17px,auto)] gap-x-4 gap-y-2 px-6 sm:grid-cols-[24px_auto_auto_1fr] sm:grid-rows-[auto_auto] sm:items-center sm:gap-y-4.25 sm:px-7 sm:pb-8",
           selected ? "pb-6" : "pb-8",
-          !isOutStock && "group/option cursor-pointer",
+          !outOfStock && "group/option cursor-pointer",
         )}
       >
         <RadioGroupItem
           value={id}
-          disabled={isOutStock}
+          disabled={outOfStock}
           aria-labelledby={`${textId}-name`}
           aria-describedby={detailIds}
           className="group-hover/option:border-primary-500 row-start-1 row-end-3 self-center sm:mt-0.5 sm:self-start"

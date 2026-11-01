@@ -1,6 +1,8 @@
 import { useId } from "react";
+import { cn } from "cn";
 import type { PaidPledgeOption } from "../models/product.interface";
 import { formatCurrency } from "../utils/format";
+import { isOutOfStock } from "../utils/pledge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import useModal from "../hooks/useModal";
@@ -10,17 +12,19 @@ interface RewardCardProps {
   option: PaidPledgeOption;
 }
 
-export default function RewardCard({
-  option: { id, baseAmount, unitsLeft, description, name },
-}: RewardCardProps) {
+export default function RewardCard({ option }: RewardCardProps) {
+  const { id, baseAmount, unitsLeft, description, name } = option;
   const { openBackProject } = useModal();
-  const isOutStock = unitsLeft === 0;
+  const outOfStock = isOutOfStock(option);
   const nameId = useId();
 
   return (
     <li>
       <Card
-        className={`inset-ring-shade-300 flex flex-col gap-6 p-6 sm:px-8 sm:pt-9.5 sm:pb-8 ${isOutStock ? "opacity-50" : ""}`}
+        className={cn(
+          "inset-ring-shade-300 flex flex-col gap-6 p-6 sm:px-8 sm:pt-9.5 sm:pb-8",
+          outOfStock && "opacity-50",
+        )}
       >
         <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
           <h3
@@ -40,13 +44,13 @@ export default function RewardCard({
           <ProductUnits unitsLeft={unitsLeft} size="large" />
 
           <Button
-            disabled={isOutStock}
+            disabled={outOfStock}
             focusableWhenDisabled
             aria-describedby={nameId}
             className="px-8"
             onClick={(e) => openBackProject(e.currentTarget, id)}
           >
-            <span>{isOutStock ? "Out of stock" : "Select Reward"}</span>
+            <span>{outOfStock ? "Out of stock" : "Select Reward"}</span>
           </Button>
         </div>
       </Card>
