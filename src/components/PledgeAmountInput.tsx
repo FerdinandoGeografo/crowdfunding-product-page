@@ -5,15 +5,9 @@ import type { PledgeOption } from "../models/product.interface";
 
 interface PledgeAmountInputProps {
   option: PledgeOption;
-  amount: string;
-  onAmountChange: (amount: string) => void;
 }
 
-export default function PledgeAmountInput({
-  option,
-  amount,
-  onAmountChange,
-}: PledgeAmountInputProps) {
+export default function PledgeAmountInput({ option }: PledgeAmountInputProps) {
   return (
     <Field
       aria-label={option.name}
@@ -37,12 +31,12 @@ export default function PledgeAmountInput({
             </span>
             <Input
               id="pledge-value"
+              name="amount"
               type="number"
               inputMode="numeric"
               required
               min={option.baseAmount}
-              value={amount}
-              onChange={(e) => onAmountChange(e.target.value)}
+              defaultValue={option.baseAmount}
               className="max-w-25 pr-2 pl-10"
             />
           </div>

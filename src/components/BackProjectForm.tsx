@@ -1,14 +1,12 @@
-import type { SubmitEventHandler } from "react";
+import { useState, type SubmitEventHandler } from "react";
 import { FREE_OPTION } from "../constants/product.const";
 
 import PledgeFormOption from "./PledgeFormOption";
-import PledgeAmountInput from "./PledgeAmountInput";
 
 import { DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { RadioGroup } from "@/components/ui/radio-group";
 import useProduct from "../hooks/useProduct";
 import useModal from "../hooks/useModal";
-import usePledgeSelection from "../hooks/usePledgeSelection";
 import { isValidPledge } from "../utils/pledge";
 
 export default function BackProjectForm() {
@@ -19,11 +17,7 @@ export default function BackProjectForm() {
   const { selectedOptionId, openThankYou } = useModal();
 
   const extendedOptions = [FREE_OPTION, ...pledgeOptions];
-  const initialOption = extendedOptions.find(
-    (option) => option.id === selectedOptionId,
-  );
-  const { amount, setAmount, select, selectedId } =
-    usePledgeSelection(initialOption);
+  const [selectedId, setSelectedId] = useState(selectedOptionId);
   const selectedOption = extendedOptions.find(
     (option) => option.id === selectedId,
   );
@@ -32,7 +26,10 @@ export default function BackProjectForm() {
     e.preventDefault();
 
     if (!selectedOption) return;
-    const pledgeAmount = selectedOption.kind === "paid" ? Number(amount) : 0;
+    const pledgeAmount =
+      selectedOption.kind === "paid"
+        ? Number(new FormData(e.currentTarget).get("amount"))
+        : 0;
     if (!isValidPledge(selectedOption, pledgeAmount)) return;
 
     dispatch({
@@ -58,10 +55,7 @@ export default function BackProjectForm() {
         <RadioGroup
           aria-label="Pledge options"
           value={selectedId}
-          onValueChange={(value) => {
-            const option = extendedOptions.find((item) => item.id === value);
-            if (option) select(option);
-          }}
+          onValueChange={setSelectedId}
           className="gap-6"
         >
           {extendedOptions.map((option) => (
@@ -69,13 +63,7 @@ export default function BackProjectForm() {
               option={option}
               key={option.id}
               selected={selectedId === option.id}
-            >
-              <PledgeAmountInput
-                option={option}
-                amount={amount}
-                onAmountChange={setAmount}
-              />
-            </PledgeFormOption>
+            />
           ))}
         </RadioGroup>
       </form>

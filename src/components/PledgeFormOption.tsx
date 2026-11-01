@@ -1,21 +1,20 @@
-import { useId, type ReactNode } from "react";
+import { useId } from "react";
 import { cn } from "cn";
 import type { PledgeOption } from "../models/product.interface";
 import { formatCurrency } from "../utils/format";
 import { Card } from "@/components/ui/card";
 import { RadioGroupItem } from "@/components/ui/radio-group";
+import PledgeAmountInput from "./PledgeAmountInput";
 import ProductUnits from "./ProductUnits";
 
 interface PledgeFormOptionProps {
   option: PledgeOption;
   selected: boolean;
-  children: ReactNode;
 }
 
 export default function PledgeFormOption({
   option,
   selected,
-  children,
 }: PledgeFormOptionProps) {
   const { id, name, description } = option;
   const isOutStock = option.kind === "paid" && option.unitsLeft === 0;
@@ -87,7 +86,7 @@ export default function PledgeFormOption({
         </span>
       </label>
 
-      {selected && children}
+      {selected && <PledgeAmountInput option={option} />}
     </Card>
   );
 }
