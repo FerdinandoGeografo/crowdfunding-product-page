@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { cn } from "cn";
 import type { PledgeOption } from "../models/product.interface";
-import { formatCurrency } from "../utils/format";
+import { formatMinimumPledge } from "../utils/format";
 import { isOutOfStock } from "../utils/pledge";
 import { Card } from "@/components/ui/card";
 import { RadioGroupItem } from "@/components/ui/radio-group";
@@ -68,7 +68,7 @@ export default function PledgeFormOption({
                 selected ? "font-bold" : "font-medium",
               )}
             >
-              Pledge {formatCurrency(option.baseAmount)} or more
+              {formatMinimumPledge(option.baseAmount)}
             </span>
             <span
               id={`${textId}-units`}

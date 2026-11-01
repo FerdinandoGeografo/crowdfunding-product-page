@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { cn } from "cn";
 import type { PaidPledgeOption } from "../models/product.interface";
-import { formatCurrency } from "../utils/format";
+import { formatMinimumPledge } from "../utils/format";
 import { isOutOfStock } from "../utils/pledge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -34,7 +34,7 @@ export default function RewardCard({ option }: RewardCardProps) {
             {name}
           </h3>
           <p className="text-primary-500 text-sm leading-4.25 font-medium sm:text-[15px] sm:leading-4.5">
-            Pledge {formatCurrency(baseAmount)} or more
+            {formatMinimumPledge(baseAmount)}
           </p>
         </div>
         <p className="text-sm leading-6 text-neutral-500 sm:text-[16px] sm:leading-7.5">

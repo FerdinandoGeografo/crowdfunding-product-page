@@ -18,3 +18,7 @@ export function formatCurrency(value: number) {
 export function formatNumber(value: number) {
   return numberFormatter.format(value);
 }
+
+export function formatMinimumPledge(amount: number) {
+  return `Pledge ${formatCurrency(amount)} or more`;
+}
