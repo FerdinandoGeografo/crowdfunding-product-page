@@ -37,9 +37,7 @@ export default function RewardCard({ option }: RewardCardProps) {
             {formatMinimumPledge(baseAmount)}
           </p>
         </div>
-        <p className="text-sm leading-6 text-neutral-500 sm:text-[16px] sm:leading-7.5">
-          {description}
-        </p>
+        <p className="text-body">{description}</p>
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
           <ProductUnits unitsLeft={unitsLeft} size="large" />
 

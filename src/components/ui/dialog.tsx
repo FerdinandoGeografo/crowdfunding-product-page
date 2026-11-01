@@ -75,10 +75,7 @@ function DialogDescription({
   return (
     <DialogPrimitive.Description
       data-slot="dialog-description"
-      className={cn(
-        "text-sm leading-6 text-neutral-500 sm:text-[16px] sm:leading-7.5",
-        className,
-      )}
+      className={cn("text-body", className)}
       {...props}
     />
   );

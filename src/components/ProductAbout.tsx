@@ -14,10 +14,7 @@ export default function ProductAbout() {
       </h2>
       <div className="mt-6 mb-8.75 flex flex-col gap-6 sm:mt-8.75 sm:mb-10 sm:gap-7.5">
         {description.split("\n").map((text, i) => (
-          <p
-            className="text-sm leading-6 text-neutral-500 sm:text-[16px] sm:leading-7.5"
-            key={i}
-          >
+          <p className="text-body" key={i}>
             {text}
           </p>
         ))}

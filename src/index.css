@@ -31,6 +31,17 @@
   --color-shade-900: rgba(0, 0, 0, 0.7);
 }
 
+@utility text-body {
+  font-size: var(--text-sm);
+  line-height: --spacing(6);
+  color: var(--color-neutral-500);
+
+  @variant sm {
+    font-size: var(--text-base);
+    line-height: --spacing(7.5);
+  }
+}
+
 @layer base {
   body {
     @apply bg-neutral-50;
