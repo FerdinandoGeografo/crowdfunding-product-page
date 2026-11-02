@@ -12,7 +12,7 @@ export default function ProductInfo() {
 
   return (
     <Card className="flex flex-col items-center gap-8 px-6 pt-8 pb-10 sm:items-start sm:gap-9.25 sm:px-11.75 sm:pt-12.25 sm:pb-12.25">
-      <div className="grid gap-6 divide-shade-300 sm:grid-cols-[179px_180px_1fr] sm:gap-11.75 sm:divide-x">
+      <div className="grid w-full gap-6 divide-shade-300 sm:grid-cols-3 sm:gap-11.75 sm:divide-x">
         <DataBox value={formatCurrency(amountBacked)} label={backedLabel} />
         <span className="mx-auto h-px w-20 bg-shade-300 sm:hidden" />
         <DataBox value={formatNumber(totalBackers)} label="total backers" />
