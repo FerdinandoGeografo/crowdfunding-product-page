@@ -12,6 +12,17 @@
 @theme {
   --font-sans: "Commissioner", sans-serif;
 
+  --text-*: initial;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-md: 0.9375rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.75rem;
+  --text-4xl: 2rem;
+
   --color-primary-50: rgba(20, 122, 115, 5%);
   --color-primary-500: #3cb3ab;
   --color-primary-800: #147a73;

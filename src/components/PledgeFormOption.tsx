@@ -81,7 +81,7 @@ export default function PledgeFormOption({
 
         <span
           id={`${textId}-description`}
-          className="col-start-1 -col-end-1 mt-4 text-sm leading-6 text-neutral-500 sm:col-start-2 sm:mt-0 sm:ml-2 sm:text-[15px] sm:leading-7"
+          className="sm:text-md col-start-1 -col-end-1 mt-4 text-sm leading-6 text-neutral-500 sm:col-start-2 sm:mt-0 sm:ml-2 sm:leading-7"
         >
           {description}
         </span>

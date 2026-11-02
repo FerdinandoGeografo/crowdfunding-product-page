@@ -22,10 +22,10 @@ export default function ProductHeader() {
         alt=""
       />
       <div className="flex flex-col items-center gap-4 text-center sm:gap-3.75">
-        <h1 className="text-xl leading-6 font-bold text-balance sm:text-[28px] sm:leading-8.5">
+        <h1 className="text-xl leading-6 font-bold text-balance sm:text-3xl sm:leading-8.5">
           {title}
         </h1>
-        <p className="text-sm leading-6 text-neutral-500 sm:text-[16px] sm:leading-5">
+        <p className="text-sm leading-6 text-neutral-500 sm:text-base sm:leading-5">
           {subTitle}
         </p>
       </div>

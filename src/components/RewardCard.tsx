@@ -33,7 +33,7 @@ export default function RewardCard({ option }: RewardCardProps) {
           >
             {name}
           </h3>
-          <p className="text-primary-500 text-sm leading-4.25 font-medium sm:text-[15px] sm:leading-4.5">
+          <p className="text-primary-500 sm:text-md text-sm leading-4.25 font-medium sm:leading-4.5">
             {formatMinimumPledge(baseAmount)}
           </p>
         </div>

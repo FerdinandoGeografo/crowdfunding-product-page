@@ -16,10 +16,7 @@ function FieldLabel({ className, ...props }: React.ComponentProps<"label">) {
   return (
     <label
       data-slot="field-label"
-      className={cn(
-        "text-sm leading-7 text-neutral-500 sm:text-[15px]",
-        className,
-      )}
+      className={cn("sm:text-md text-sm leading-7 text-neutral-500", className)}
       {...props}
     />
   );
