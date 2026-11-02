@@ -7,7 +7,7 @@ export default function Header() {
         <div className="h-32 bg-linear-to-b from-shade-900 to-shade-50" />
       </div>
 
-      <header className="flex items-center justify-between px-6 pt-8 pb-19 sm:px-[clamp(1.5rem,11.46vw,10.3125rem)] sm:pt-12 sm:pb-15">
+      <header className="mx-auto flex w-full max-w-360 items-center justify-between px-6 pt-8 pb-19 sm:px-[clamp(1.5rem,11.46vw,10.3125rem)] sm:pt-12 sm:pb-15">
         <img
           className="z-50"
           src="/logo.svg"
