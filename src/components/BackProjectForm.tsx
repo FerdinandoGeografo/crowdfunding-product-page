@@ -44,7 +44,7 @@ export default function BackProjectForm() {
   };
 
   return (
-    <div className="max-w-182.5 px-6 py-8 sm:px-12 sm:py-[48.5px]">
+    <div className="max-w-182.5 px-6 py-8 sm:px-12 sm:py-12">
       <DialogTitle className="mb-6 sm:mb-4">Back this project</DialogTitle>
       <DialogDescription className="mb-6 sm:mb-8">
         Want to support us in bringing Mastercraft Bamboo Monitor Riser out in

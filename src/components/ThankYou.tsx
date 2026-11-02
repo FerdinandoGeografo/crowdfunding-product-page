@@ -20,13 +20,13 @@ export default function ThankYou() {
       }}
     >
       <DialogContent showCloseButton={false} finalFocus={false}>
-        <div className="flex max-w-135 flex-col items-center gap-6 px-6 pt-8 pb-10 sm:gap-8 sm:px-12 sm:pt-12 sm:pb-[48.5px]">
+        <div className="flex max-w-135 flex-col items-center gap-6 px-6 pt-8 pb-10 sm:gap-8 sm:px-12 sm:pt-12 sm:pb-12">
           <Icon
             name="check"
             className="size-16 fill-primary-500 text-white sm:size-22.5"
           />
 
-          <div className="mb-2 flex flex-col items-center gap-6 sm:mt-[15.5px] sm:mb-0 sm:gap-4">
+          <div className="mb-2 flex flex-col items-center gap-6 sm:mt-4 sm:mb-0 sm:gap-4">
             <DialogTitle>Thanks for your support!</DialogTitle>
             <DialogDescription className="text-center">
               Your pledge brings us one step closer to sharing Mastercraft
