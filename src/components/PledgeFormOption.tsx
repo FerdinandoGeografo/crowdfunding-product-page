@@ -35,7 +35,7 @@ export default function PledgeFormOption({
     >
       <label
         className={cn(
-          "grid grid-cols-[24px_1fr] grid-rows-[minmax(17px,auto)_minmax(17px,auto)] gap-x-4 gap-y-2 px-6 sm:grid-cols-[24px_auto_auto_1fr] sm:grid-rows-[auto_auto] sm:items-center sm:gap-y-4.25 sm:px-7 sm:pb-8",
+          "grid grid-cols-[auto_1fr] grid-rows-[minmax(17px,auto)_minmax(17px,auto)] gap-x-4 gap-y-2 px-6 sm:grid-cols-[auto_auto_auto_1fr] sm:grid-rows-none sm:items-center sm:gap-y-4.25 sm:px-7 sm:pb-8",
           selected ? "pb-6" : "pb-8",
           !outOfStock && "group/option cursor-pointer",
         )}
@@ -72,7 +72,7 @@ export default function PledgeFormOption({
             </span>
             <span
               id={`${textId}-units`}
-              className="order-1 mt-4 ml-auto flex items-center sm:order-0 sm:mt-0 sm:h-5"
+              className="order-1 col-span-2 mt-4 flex items-center sm:order-0 sm:col-span-1 sm:mt-0 sm:ml-auto sm:h-5"
             >
               <ProductUnits unitsLeft={option.unitsLeft} />
             </span>
