@@ -43,7 +43,6 @@ export default function RewardCard({ option }: RewardCardProps) {
 
           <Button
             disabled={outOfStock}
-            focusableWhenDisabled
             aria-describedby={nameId}
             className="px-8"
             onClick={(e) => openBackProject(e.currentTarget, id)}
