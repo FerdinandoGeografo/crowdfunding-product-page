@@ -32,6 +32,8 @@ function reducer(state: Product, action: ProductAction): Product {
               ),
       };
     }
+    case "toggleBookmark":
+      return { ...state, bookmarked: !state.bookmarked };
     default:
       throw new Error("Action is unknown");
   }
@@ -39,9 +41,10 @@ function reducer(state: Product, action: ProductAction): Product {
 
 export default function ProductProvider({ children }: { children: ReactNode }) {
   const [product, dispatch] = useReducer(reducer, initialState);
+  const toggleBookmark = () => dispatch({ type: "toggleBookmark" });
 
   return (
-    <ProductContext.Provider value={{ product, dispatch }}>
+    <ProductContext.Provider value={{ product, dispatch, toggleBookmark }}>
       {children}
     </ProductContext.Provider>
   );
