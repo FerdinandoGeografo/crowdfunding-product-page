@@ -17,7 +17,7 @@ function RadioGroupItem({ className, ...props }: RadioPrimitive.Root.Props) {
     <RadioPrimitive.Root
       data-slot="radio-group-item"
       className={cn(
-        "border-shade-300 focus-visible:ring-primary-800 flex size-6 shrink-0 items-center justify-center rounded-full border outline-hidden transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 data-disabled:cursor-not-allowed",
+        "flex size-6 shrink-0 items-center justify-center rounded-full border border-shade-300 outline-hidden transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-primary-800 focus-visible:ring-offset-2 data-disabled:cursor-not-allowed",
         className,
       )}
       {...props}
@@ -25,7 +25,7 @@ function RadioGroupItem({ className, ...props }: RadioPrimitive.Root.Props) {
       <RadioPrimitive.Indicator
         keepMounted
         data-slot="radio-group-indicator"
-        className="bg-primary-500 size-3 scale-0 rounded-full transition-transform duration-300 data-checked:scale-100"
+        className="size-3 scale-0 rounded-full bg-primary-500 transition-transform duration-300 data-checked:scale-100"
       />
     </RadioPrimitive.Root>
   );

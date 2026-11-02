@@ -22,7 +22,7 @@ export default function RewardCard({ option }: RewardCardProps) {
     <li>
       <Card
         className={cn(
-          "inset-ring-shade-300 flex flex-col gap-6 p-6 sm:px-8 sm:pt-9.5 sm:pb-8",
+          "flex flex-col gap-6 p-6 inset-ring-shade-300 sm:px-8 sm:pt-9.5 sm:pb-8",
           outOfStock && "opacity-50",
         )}
       >
@@ -33,7 +33,7 @@ export default function RewardCard({ option }: RewardCardProps) {
           >
             {name}
           </h3>
-          <p className="text-primary-500 sm:text-md text-sm leading-4.25 font-medium sm:leading-4.5">
+          <p className="text-sm leading-4.25 font-medium text-primary-500 sm:text-md sm:leading-4.5">
             {formatMinimumPledge(baseAmount)}
           </p>
         </div>

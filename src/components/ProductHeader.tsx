@@ -46,7 +46,7 @@ export default function ProductHeader() {
         >
           <Icon
             name="bookmark"
-            className="group-aria-pressed/toggle:fill-primary-800 group-aria-pressed/toggle:group-hover/toggle:fill-primary-500 size-14 fill-neutral-900 text-neutral-300 transition-colors duration-300 group-hover/toggle:fill-neutral-700 group-aria-pressed/toggle:text-white"
+            className="size-14 fill-neutral-900 text-neutral-300 transition-colors duration-300 group-hover/toggle:fill-neutral-700 group-aria-pressed/toggle:fill-primary-800 group-aria-pressed/toggle:text-white group-aria-pressed/toggle:group-hover/toggle:fill-primary-500"
           />
           <span className="hidden sm:block">
             {bookmarked ? "Bookmarked" : "Bookmark"}

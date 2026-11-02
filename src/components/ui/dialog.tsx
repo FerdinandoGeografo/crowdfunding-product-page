@@ -22,7 +22,7 @@ function DialogContent({
     <DialogPrimitive.Portal>
       <DialogPrimitive.Backdrop
         data-slot="dialog-overlay"
-        className="bg-shade-800 fixed inset-0 z-50 transition-opacity duration-300 data-ending-style:opacity-0 data-starting-style:opacity-0"
+        className="fixed inset-0 z-50 bg-shade-800 transition-opacity duration-300 data-ending-style:opacity-0 data-starting-style:opacity-0"
       />
       <DialogPrimitive.Viewport
         data-slot="dialog-viewport"
@@ -41,7 +41,7 @@ function DialogContent({
             <DialogPrimitive.Close
               data-slot="dialog-close"
               aria-label="Close dialog"
-              className="group hover:bg-shade-600 focus-visible:ring-primary-800 absolute top-6.75 right-3.75 flex size-8 items-center justify-center rounded-full outline-hidden transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 sm:top-5.75 sm:right-5.75"
+              className="group absolute top-6.75 right-3.75 flex size-8 items-center justify-center rounded-full outline-hidden transition-colors duration-300 hover:bg-shade-600 focus-visible:ring-2 focus-visible:ring-primary-800 focus-visible:ring-offset-2 sm:top-5.75 sm:right-5.75"
             >
               <Icon
                 name="close-modal"

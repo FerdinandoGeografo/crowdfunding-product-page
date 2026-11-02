@@ -21,7 +21,7 @@ export default function PledgeAmountInput({
       onKeyDown={(e) => {
         if (e.key.startsWith("Arrow")) e.stopPropagation();
       }}
-      className="border-t-shade-300 flex-wrap items-center justify-center gap-4 border-t px-6 py-6 sm:justify-end sm:px-7"
+      className="flex-wrap items-center justify-center gap-4 border-t border-t-shade-300 px-6 py-6 sm:justify-end sm:px-7"
     >
       {option.kind === "paid" && (
         <>
@@ -33,7 +33,7 @@ export default function PledgeAmountInput({
           </FieldLabel>
 
           <div className="relative">
-            <span className="text-shade-700 absolute top-1/2 left-6 -translate-y-1/2 text-sm leading-4.25 font-bold">
+            <span className="absolute top-1/2 left-6 -translate-y-1/2 text-sm leading-4.25 font-bold text-shade-700">
               $
             </span>
             <Input

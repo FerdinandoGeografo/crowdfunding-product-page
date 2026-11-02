@@ -28,8 +28,8 @@ export default function PledgeFormOption({
   return (
     <Card
       className={cn(
-        "inset-ring-shade-300 pt-6 sm:pt-8",
-        selected && "outline-primary-500 outline-2 -outline-offset-2",
+        "pt-6 inset-ring-shade-300 sm:pt-8",
+        selected && "outline-2 -outline-offset-2 outline-primary-500",
         outOfStock && "opacity-50",
       )}
     >
@@ -45,13 +45,13 @@ export default function PledgeFormOption({
           disabled={outOfStock}
           aria-labelledby={`${textId}-name`}
           aria-describedby={detailIds}
-          className="group-hover/option:border-primary-500 row-start-1 row-end-3 self-center sm:mt-0.5 sm:self-start"
+          className="row-start-1 row-end-3 self-center group-hover/option:border-primary-500 sm:mt-0.5 sm:self-start"
         />
 
         <span
           id={`${textId}-name`}
           className={cn(
-            "group-hover/option:text-primary-500 text-sm leading-4.25 font-bold transition-colors duration-300 sm:ml-2 sm:text-base sm:leading-5",
+            "text-sm leading-4.25 font-bold transition-colors duration-300 group-hover/option:text-primary-500 sm:ml-2 sm:text-base sm:leading-5",
             option.kind === "free" &&
               "row-span-2 self-center sm:row-span-1 sm:self-auto",
           )}
@@ -64,7 +64,7 @@ export default function PledgeFormOption({
             <span
               id={`${textId}-pledge`}
               className={cn(
-                "text-primary-500 text-sm leading-4.25 sm:text-base sm:leading-5",
+                "text-sm leading-4.25 text-primary-500 sm:text-base sm:leading-5",
                 selected ? "font-bold" : "font-medium",
               )}
             >
@@ -81,7 +81,7 @@ export default function PledgeFormOption({
 
         <span
           id={`${textId}-description`}
-          className="sm:text-md col-start-1 -col-end-1 mt-4 text-sm leading-6 text-neutral-500 sm:col-start-2 sm:mt-0 sm:ml-2 sm:leading-7"
+          className="col-start-1 -col-end-1 mt-4 text-sm leading-6 text-neutral-500 sm:col-start-2 sm:mt-0 sm:ml-2 sm:text-md sm:leading-7"
         >
           {description}
         </span>
