@@ -60,7 +60,7 @@ Users should be able to:
 
 ### How it works
 
-- **State.** `ProductProvider` holds the campaign in a `useReducer`, with a single `pledge` action. The reducer validates it with the same `isValidPledge` rule the form uses: a reward must have stock left (`isOutOfStock`) and the amount must reach its minimum. The no-reward pledge never changes stock. The bookmark is local state of `ProductHeader`, the only component that reads it.
+- **State.** `ProductProvider` holds the campaign, bookmark included, in a `useReducer` with two actions, `pledge` and `toggleBookmark`. The reducer validates a pledge with the same `isValidPledge` rule the form uses: a reward must have stock left (`isOutOfStock`) and the amount must reach its minimum. The no-reward pledge never changes stock. The context exposes the product, `dispatch` and a `toggleBookmark` handler.
 - **Contexts.** Each context lives in its own `*.context.ts` file, its provider in a `*Provider.tsx` file and its reader in a hook (`useProduct`, `useModal`). `ModalProvider` knows which dialog is open, which reward was picked and which button opened the flow.
 - **Pledge flow.** "Back this project" and "Select Reward" open the same controlled dialog; the reward picked from a card arrives preselected. Confirming a pledge opens the thank-you dialog nested inside it, so only one backdrop is drawn. Closing it with "Got it!" or Escape returns focus to the button that started the flow.
 - **Form.** Each pledge option is a radio named after its reward and described by its minimum, stock and text. The amount field appears only under the selected option, starts at the reward's minimum and is read with `FormData` on submit, so typing does not re-render the form. The field is described by the "Pledge $X or more" label, and native validation blocks empty or too-low amounts.
@@ -126,8 +126,8 @@ Tailwind's CSS pipeline (Lightning CSS) dropped a plain `url()` declared before 
 A throwaway `<Profiler>` patch counted renders per component in five scenarios. It showed where state lived too high:
 
 - The amount was state in the form, so three keystrokes caused 27 renders across the form, its four options and their children. An uncontrolled input read on submit brought that to zero. Because the field only renders under the selected option, switching reward remounts it and resets it to the new minimum without extra code.
-- The bookmark was part of the product state, so toggling it re-rendered every component that read the product (14 renders). As local state of `ProductHeader` it costs one render with the React Compiler.
-- The React Compiler cut the six measured scenarios from 82 to 55 renders, but it cannot skip components that read a context that changed: opening the dialog still re-renders the four components that read `ModalContext` (the header card and the three reward cards), even though they only need its stable `openBackProject` function.
+- Toggling the bookmark re-rendered every component that read the product (14 renders). Moving it into `ProductHeader` as local state would have cut that to one, but the bookmark is product data that a real backend would return, so it stays in the reducer. With the React Compiler the toggle costs four renders: the provider and the three components that read the product, while their children are skipped.
+- The React Compiler cut the six measured scenarios from 94 to 58 renders, but it cannot skip components that read a context that changed: opening the dialog still re-renders the four components that read `ModalContext` (the header card and the three reward cards), even though they only need its stable `openBackProject` function.
 
 #### Small details
 
