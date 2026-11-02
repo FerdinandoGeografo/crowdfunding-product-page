@@ -33,7 +33,8 @@ export default function Navigation() {
           aria-label="Menu"
           align="end"
           sideOffset={36}
-          className="w-[calc(100vw-3rem)]"
+          collisionPadding={24}
+          className="w-(--available-width)"
         >
           <nav aria-label="Main" className="flex">
             <NavList onNavigate={() => setIsOpen(false)} />
